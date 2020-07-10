@@ -1,0 +1,21 @@
+#define _CRT_SUCURE_NO_WARNINGS
+#include <stdio.h>
+
+int swap(int* a, int* b);
+
+int main() 
+{
+	int a, b;
+	printf("자리를 바꿀 두 수를 입력 -> ");
+	scanf("%d %d", &a, &b);
+	swap(&a, &b);
+	printf("바뀐 수 -> %d, %d\n", a, b);
+}
+
+int swap(int* a, int* b)
+{
+	int tmp = 0;
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
