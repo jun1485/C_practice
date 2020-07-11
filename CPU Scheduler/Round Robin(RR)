@@ -1,0 +1,151 @@
+#include <iostream>
+#include <algorithm> 
+#include <iomanip>
+#include <queue> 
+using namespace std;
+
+struct process {
+    int process_id;
+    int AT;
+    int BT;
+    int ST;
+    int CT;
+    int TAT;
+    int WT;
+    int RT;
+};
+//AT = Arrival time BT = Burst time ST = Start time
+//TAT = Turnaround time  CT = Complete time
+//WT = Waiting time RT = Response time
+//Turnaround time = Complete time - Arrival time
+// Waiting time = Turnaround time - Burst time
+// Response time = Start time - Arrival time
+
+bool compare1(process p1, process p2)
+{
+    return p1.AT < p2.AT;
+}
+
+bool compare2(process p1, process p2)
+{
+    return p1.process_id < p2.process_id;
+}
+
+int main() {
+
+    int n;
+    int tq;
+    struct process p[100];
+    float cpu_utilisation;
+    float avg_turnaround_time;
+    float avg_waiting_time;
+    float avg_response_time;
+    int total_response_time = 0;
+    int total_turnaround_time = 0;
+    int total_waiting_time = 0;
+    int total_idle_time = 0;
+    float throughput;
+    int burst_remain[100];
+    int index;
+
+    cout << setprecision(2) << fixed;
+
+    cout << "Round Robin Scheduler\n\n" << "프로세스의 개수를 입력해주세요 =>";
+    cin >> n;
+    cout << "time quantum을 입력해주세요 ! => ";
+    cin >> tq;
+
+    for (int i = 0; i < n; i++) {
+        cout << "프로세스의 도착시간(Arrival time)을 입력해주세요 => " << i + 1 << ": ";
+        cin >> p[i].AT;
+        cout << "프로세스의 실행시간(Berst time)을 입력해주세요 => " << i + 1 << ": ";
+        cin >> p[i].BT;
+        burst_remain[i] = p[i].BT;
+        p[i].process_id = i + 1;
+        cout << endl;
+    }
+
+    system("CLS");
+    sort(p, p + n, compare1);
+
+    queue<int> q;
+    int current_time = 0;
+    q.push(0);
+    int completed = 0;
+    int mark[100];
+    memset(mark, 0, sizeof(mark));
+    mark[0] = 1;
+
+    while (completed != n) {
+        index = q.front();
+        q.pop();
+
+        if (burst_remain[index] == p[index].BT) {
+            p[index].ST = max(current_time, p[index].AT);
+            total_idle_time += p[index].ST - current_time;
+            current_time = p[index].ST;
+        }
+
+        if (burst_remain[index] - tq > 0) {
+            burst_remain[index] -= tq;
+            current_time += tq;
+        }
+        else {
+            current_time += burst_remain[index];
+            burst_remain[index] = 0;
+            completed++;
+
+            p[index].CT = current_time;
+            p[index].TAT = p[index].CT - p[index].AT;
+            p[index].WT = p[index].TAT - p[index].BT;
+            p[index].RT = p[index].ST - p[index].AT;
+
+            total_turnaround_time += p[index].TAT;
+            total_waiting_time += p[index].WT;
+            total_response_time += p[index].RT;
+        }
+
+        for (int i = 1; i < n; i++) {
+            if (burst_remain[i] > 0 && p[i].AT <= current_time && mark[i] == 0) {
+                q.push(i);
+                mark[i] = 1;
+            }
+        }
+        if (burst_remain[index] > 0) {
+            q.push(index);
+        }
+
+        if (q.empty()) {
+            for (int i = 1; i < n; i++) {
+                if (burst_remain[i] > 0) {
+                    q.push(i);
+                    mark[i] = 1;
+                    break;
+                }
+            }
+        }
+
+
+    }
+
+    avg_response_time = (float)total_response_time / n;
+    avg_turnaround_time = (float)total_turnaround_time / n;
+    avg_waiting_time = (float)total_waiting_time / n;
+    cpu_utilisation = ((p[n - 1].CT - total_idle_time) / (float)p[n - 1].CT) * 100;
+    throughput = float(n) / (p[n - 1].CT - p[0].AT);
+
+    sort(p, p + n, compare2);
+
+    cout << endl;
+    cout << "P(i)\t" << "AT\t" << "BT\t" << "CT\t" << "TAT\t" << "WT\t" << "\n" << endl;
+
+    for (int i = 0; i < n; i++) {
+        cout << p[i].process_id << "\t" << p[i].AT << "\t" << p[i].BT << "\t" << p[i].CT << "\t" << p[i].TAT << "\t" << p[i].WT << "\t" << "\n" << endl;
+    }
+    cout << "CPU Utilization = " << cpu_utilisation << "%" << endl;
+    cout << "Throughput = " << throughput << " process/unit time" << endl;
+    cout << "평균 반환 시간 = " << avg_turnaround_time << endl;
+    cout << "평균 대기 시간 = " << avg_waiting_time << endl;
+
+
+}
