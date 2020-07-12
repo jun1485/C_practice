@@ -1,0 +1,32 @@
+#define _CRT_SUCURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+	int* pi;
+	double* pd;
+
+	pi = (int*)malloc(sizeof(int));
+	if (pi == NULL)
+	{
+		printf("pi 동적 할당 실패 !\n");
+		exit(1);
+	}
+	pd = (double*)malloc(sizeof(double));
+	if (pd == NULL)
+	{
+		printf("pd 동적 할당 실패 !\n");
+		exit(1);
+	}
+	
+	printf("정수형 수 입력 -> ");
+	scanf("%d", pi);
+	printf("실수형 수 입력 -> ");
+	scanf("%lf", pd);
+
+	printf("정수형으로 사용 -> %d\n", *pi);
+	printf("실수형으로 사용 -> %.1lf\n", *pd);
+
+	free(pi);
+	free(pd);
+}
