@@ -16,7 +16,7 @@ int main()
     strcpy(p1->name, "주정준");
     p1->age = 24;
     strcpy(p1->address, "경상북도 경산시");
-    printf("이름: %s\n", p1->name);       // 홍길동
-    printf("나이: %d\n", p1->age);        // 30
+    printf("이름: %s\n", p1->name); 
+    printf("나이: %d\n", p1->age);   
     printf("주소: %s\n", p1->address);
 }
