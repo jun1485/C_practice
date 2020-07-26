@@ -28,4 +28,4 @@ int LNext(List* plist, LData* pdata);
 LData LRemove(List* plist);
 int LCount(List* plist);
 
-#endif#pragma once
+#endif
