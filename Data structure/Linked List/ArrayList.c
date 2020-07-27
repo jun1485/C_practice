@@ -14,5 +14,26 @@ void LInsert(List* plist, LData data)
 		printf("저장 불가 ! -자료 수 초과-\n");
 		return;
 	}
-	plist->arr[++plist->numOfData] = data;
+	plist->arr[plist->numOfData] = data;
+	(plist->numOfData)++;
+}
+
+int LFirst(List* plist, LData* pdata)
+{
+	if (plist->numOfData == 0)
+		return FALSE;
+
+	plist->curPosition = 0;
+	*pdata = plist->arr[0];
+	return TRUE;
+}
+
+int LNext(List* plist, LData* pdata)
+{
+	if (plist->curPosition > plist->numOfData)
+		return FALSE;
+
+	plist->curPosition++;
+	*pdata = plist->arr[plist->curPosition];
+	return TRUE;
 }
