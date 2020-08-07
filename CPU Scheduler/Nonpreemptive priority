@@ -76,6 +76,27 @@ int main() {
                 }
             }
         }
+        if (index != -1) {
+            p[index].ST = current_time;
+            p[index].CT = p[index].ST + p[index].BT;
+            p[index].TAT = p[index].CT - p[index].AT;
+            p[index].WT = p[index].TAT - p[index].BT;
+            p[index].RT = p[index].ST - p[index].AT;
+
+            total_turnaround_time += p[index].TAT;
+            total_waiting_time += p[index].WT;
+            total_response_time += p[index].RT;
+            total_idle_time += p[index].ST - prev;
+
+            Completed[index] = 1;
+            completed++;
+            current_time = p[index].CT;
+            prev = current_time;
+        }
+        else {
+            current_time++;
+        }
+
     }
 
     int min_arrival_time = 10000000;
