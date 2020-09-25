@@ -17,3 +17,6 @@ void attach(float cofficient, int exponent) {
 	if (avail >= MAX_TERMS) {
 		fprintf(stderr, "다항식에 항이 너무 많다.");
 		exit(1);
+	}
+	terms[avail].coef = cofficient;
+	terms[avail++].expon = exponent;
