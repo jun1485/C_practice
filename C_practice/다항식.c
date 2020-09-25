@@ -9,3 +9,11 @@ typedef struct {
 	int expon;
 } polynomial;
 polynomial terms[MAX_TERMS];
+
+int avail = 0;
+
+void attach(float cofficient, int exponent) {
+	/* 새로운 항을 다항식에 첨가한다. */
+	if (avail >= MAX_TERMS) {
+		fprintf(stderr, "다항식에 항이 너무 많다.");
+		exit(1);
