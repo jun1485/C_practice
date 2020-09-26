@@ -17,4 +17,6 @@ int main()
 		if (res > arr[i]) res = arr[i];
 	}
 	printf("%d", res);
+
+        return 0;
 }
