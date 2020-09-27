@@ -20,3 +20,9 @@ void attach(float cofficient, int exponent) {
 	}
 	terms[avail].coef = cofficient;
 	terms[avail++].expon = exponent;
+}
+void padd(int startA, int finishA, int startB, int finishB, int* startD, int* finishD) {
+	/* A(x)와 B(x)를 더하여 D(x)를 생성한다. */
+	float cofficient;
+	*startD = avail;
+	while (startA <= finishA && startB <= finishB)
