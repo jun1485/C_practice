@@ -26,3 +26,10 @@ void padd(int startA, int finishA, int startB, int finishB, int* startD, int* fi
 	float cofficient;
 	*startD = avail;
 	while (startA <= finishA && startB <= finishB)
+		switch (COMPARE(terms[startA].expon, terms[startB].expon)) {
+		case -1: /* a의 expon이 b의 expon보다 작은 경우 */
+			attach(terms[startB].coef, terms[startB].expon);
+			startB++;
+			break;
+		case  0: /* 지수가 같은 경우 */
+			cofficient = terms[startA].coef + terms[startB].coef;
