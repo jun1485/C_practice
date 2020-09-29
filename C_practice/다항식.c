@@ -42,3 +42,5 @@ void padd(int startA, int finishA, int startB, int finishB, int* startD, int* fi
 			attach(terms[startA].coef, terms[startA].expon);
 			startA++;
 		}
+	/* A(x)의 나머지 항들을 첨가한다. */
+	for (; startA <= finishA; startA++) 
