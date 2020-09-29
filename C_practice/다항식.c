@@ -33,3 +33,12 @@ void padd(int startA, int finishA, int startB, int finishB, int* startD, int* fi
 			break;
 		case  0: /* 지수가 같은 경우 */
 			cofficient = terms[startA].coef + terms[startB].coef;
+			if (cofficient)
+				attach(cofficient, terms[startA].expon);
+			startA++;
+			startB++;
+			break;
+		case  1: /* a의 expon이 b의 expon보다 큰 경우 */
+			attach(terms[startA].coef, terms[startA].expon);
+			startA++;
+		}
