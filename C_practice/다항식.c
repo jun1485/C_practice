@@ -43,4 +43,13 @@ void padd(int startA, int finishA, int startB, int finishB, int* startD, int* fi
 			startA++;
 		}
 	/* A(x)의 나머지 항들을 첨가한다. */
-	for (; startA <= finishA; startA++) 
+	for (; startA <= finishA; startA++)
+		attach(terms[startA].coef, terms[startA].expon);
+	/* B(x)의 나머지 항들을 첨가한다. */
+	for (; startB <= finishB; startB++)
+		attach(terms[startB].coef, terms[startB].expon);
+	*finishD = avail - 1;
+}
+
+void single_mul(float cofficient, int exponent, int startA, int finishA, int* startD, int* finishD) {
+	*startD = avail;
