@@ -53,3 +53,7 @@ void padd(int startA, int finishA, int startB, int finishB, int* startD, int* fi
 
 void single_mul(float cofficient, int exponent, int startA, int finishA, int* startD, int* finishD) {
 	*startD = avail;
+	for (; startA <= finishA; startA++)
+		attach(cofficient * terms[startA].coef,
+		       
+		       
