@@ -54,6 +54,12 @@ void padd(int startA, int finishA, int startB, int finishB, int* startD, int* fi
 void single_mul(float cofficient, int exponent, int startA, int finishA, int* startD, int* finishD) {
 	*startD = avail;
 	for (; startA <= finishA; startA++)
-		attach(cofficient * terms[startA].coef,
-		       
-		       
+		attach(cofficient * terms[startA].coef, exponent + terms[startA].expon);
+	*finishD = avail - 1;
+}
+void pmul(int startA, int finishA, int startB, int finishB, int* startD, int* finishD) {
+	int start_sub;
+	int finish_sub;
+	int start_total = 0;
+	int finish_total = -1;
+	for (
