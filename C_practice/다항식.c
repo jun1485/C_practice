@@ -66,4 +66,6 @@ void pmul(int startA, int finishA, int startB, int finishB, int* startD, int* fi
 		single_mul(terms[startA].coef, terms[startA].expon, startB, finishB, &start_sub, &finish_sub);
 		padd(start_sub, finish_sub, start_total, finish_total, &start_total, &finish_total);
 	}
-	*startD =
+	*startD = start_total;
+	*finishD = finish_total;
+}
