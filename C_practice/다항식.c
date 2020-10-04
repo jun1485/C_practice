@@ -77,3 +77,10 @@ int main() {
 	int expon;
 	int n;
 	int startA, finishA, startB, finishB, startAdd, finishAdd, startMul, finishMul;
+
+	startA = avail;
+	attach(3, 20);
+	attach(-2, 5);
+	attach(4, 0);
+	finishA = avail - 1;
+	printf("Poly. A\n");
