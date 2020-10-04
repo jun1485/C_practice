@@ -69,3 +69,11 @@ void pmul(int startA, int finishA, int startB, int finishB, int* startD, int* fi
 	*startD = start_total;
 	*finishD = finish_total;
 }
+
+
+
+int main() {
+	float coef;
+	int expon;
+	int n;
+	int startA, finishA, startB, finishB, startAdd, finishAdd, startMul, finishMul;
