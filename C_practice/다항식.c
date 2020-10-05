@@ -84,3 +84,10 @@ int main() {
 	attach(4, 0);
 	finishA = avail - 1;
 	printf("Poly. A\n");
+
+	for (int i = startA; i <= finishA; i++)
+		printf("    %8.2f %8d\n", terms[i].coef, terms[i].expon);
+
+	printf("Poly. B\n");
+
+	startB = avail;
