@@ -91,3 +91,8 @@ int main() {
 	printf("Poly. B\n");
 
 	startB = avail;
+	attach(1, 4);
+	attach(10, 3);
+	attach(-3, 2);
+	attach(1, 0);
+	finishB = avail - 1;
