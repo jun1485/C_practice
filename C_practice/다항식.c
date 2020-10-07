@@ -96,3 +96,10 @@ int main() {
 	attach(-3, 2);
 	attach(1, 0);
 	finishB = avail - 1;
+
+	for (int i = startB; i <= finishB; i++)
+		printf("    %8.2f %8d\n", terms[i].coef, terms[i].expon);
+
+	printf("Poly. Addtion\n");
+
+	padd(startA, finishA, startB, finishB,
