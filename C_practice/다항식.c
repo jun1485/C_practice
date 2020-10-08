@@ -105,4 +105,8 @@ int main() {
 	padd(startA, finishA, startB, finishB, &startAdd, &finishAdd);
 
 	for (int i = startAdd; i <= finishAdd; i++)
-		printf("    %8.2f %8d\n",
+		printf("    %8.2f %8d\n", terms[i].coef, terms[i].expon);
+
+	printf("Poly. Multiplication\n");
+
+	pmul(startA, finishA, startB,
