@@ -109,4 +109,7 @@ int main() {
 
 	printf("Poly. Multiplication\n");
 
-	pmul(startA, finishA, startB,
+	pmul(startA, finishA, startB, finishB, &startMul, &finishMul);
+
+	for (int i = startMul; i <= finishMul; i++)
+		printf(
