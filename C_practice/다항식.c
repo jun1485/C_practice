@@ -112,4 +112,9 @@ int main() {
 	pmul(startA, finishA, startB, finishB, &startMul, &finishMul);
 
 	for (int i = startMul; i <= finishMul; i++)
-		printf(
+		printf("    %8.2f %8d\n", terms[i].coef, terms[i].expon);
+
+	printf("Avail %d\n", avail);
+
+	return 0;
+}
