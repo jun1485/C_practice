@@ -1,0 +1,10 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_STACK_SIZE 10
+#define STACK_ERROR_KEY -999
+
+typedef struct {
+	int key;
+	/* 다른 필드 */
+} element;
