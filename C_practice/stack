@@ -8,3 +8,20 @@ typedef struct {
 	int key;
 	/* 다른 필드 */
 } element;
+
+static element stack[MAX_STACK_SIZE];
+static int top = -1;
+
+void printStack();
+bool isEmpty();
+bool isFull();
+void stackFull();
+element stackEmpty();
+void push(element item);
+element pop();
+
+void printStack() {
+	printf(" index : element\n");
+	for (int i = 0; i <= top; i++)
+		printf("%4d : %8d\n", i, stack[i].key);
+}
