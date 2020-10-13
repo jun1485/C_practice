@@ -37,3 +37,9 @@ bool isFull() {
 	else
 		return false;
 }
+void stackFull() {
+	fprintf(stderr, "Stack is full, cannot add element\n");
+}
+element stackEmpty() {
+	fprintf(stderr, "Stack is empty, cannot remove element\n");
+	element temp;
