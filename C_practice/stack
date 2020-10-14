@@ -43,3 +43,11 @@ void stackFull() {
 element stackEmpty() {
 	fprintf(stderr, "Stack is empty, cannot remove element\n");
 	element temp;
+	temp.key = STACK_ERROR_KEY;
+	return temp;
+}
+void push(element item) {
+	/* 전역 stack에 item을 삽입 */
+	if (top == MAX_STACK_SIZE - 1)
+		stackFull();
+	else
