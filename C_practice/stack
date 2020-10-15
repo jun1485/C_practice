@@ -56,4 +56,6 @@ void push(element item) {
 element pop() {
 	/* stack의 최상위 원소를 삭제하고 반환 */
 	if (top == -1)
-		return stackEmpty();
+		return stackEmpty(); /* returns an error key */
+	return stack[top--];
+}
