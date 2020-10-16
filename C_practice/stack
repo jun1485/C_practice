@@ -59,3 +59,13 @@ element pop() {
 		return stackEmpty(); /* returns an error key */
 	return stack[top--];
 }
+
+int main() {
+	int n;
+	element temp;
+
+	printf("STACK PUSH&POP\n");
+	n = 20;
+	while (n--) {
+	
+	}
