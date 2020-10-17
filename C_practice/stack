@@ -74,3 +74,12 @@ int main() {
 			printStack();
 		}
 		else {
+			temp = pop();
+			printf("pop 연산 수행 (key:%d)\n", temp.key);
+			printStack();
+		}
+	}
+
+
+	return 0;
+}
