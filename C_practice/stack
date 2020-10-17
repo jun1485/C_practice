@@ -67,5 +67,10 @@ int main() {
 	printf("STACK PUSH&POP\n");
 	n = 20;
 	while (n--) {
-	
-	}
+		if (rand() % 2 == 0) {
+			temp.key = rand() % MAX_STACK_SIZE;
+			printf("push 연산 수행 (key:%d)\n", temp.key);
+			push(temp);
+			printStack();
+		}
+		else {
