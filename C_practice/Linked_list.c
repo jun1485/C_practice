@@ -1,13 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main()
-{
-	int array[20] = { 0 };
-	int temp = 0;
+#define SWAP(a,b) {int t=a; a=b; b=t;}
+#define SIZE 20
 
-	for (int i = 0; i < 20; i++)
-	{
-		array[i] = rand() % 1000 + 1;
-		printf("%d ", array[i]);
-	}
+typedef struct node {
+    int data;
+    struct node* next;
+}NODE;
