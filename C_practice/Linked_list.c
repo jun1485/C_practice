@@ -15,5 +15,11 @@ void randAlloc(int* arr) {
 }
 
 void selectionSort(int* arr) {
-    
+    for (int i = 0; i < SIZE - 1; i++) {
+        for (int j = i + 1; j < SIZE; j++) {
+            if (arr[i] > arr[j]) {
+                SWAP(arr[i], arr[j]);
+            }
+        }
+    }
 }
