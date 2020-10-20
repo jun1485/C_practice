@@ -23,3 +23,11 @@ void selectionSort(int* arr) {
         }
     }
 }
+
+NODE* addNode(int data) {
+    NODE* newNode = (NODE*)malloc(sizeof(NODE));
+    newNode->data = data;
+    newNode->next = NULL;
+
+    return newNode;
+}
