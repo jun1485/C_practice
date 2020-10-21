@@ -31,3 +31,9 @@ NODE* addNode(int data) {
 
     return newNode;
 }
+
+void transLinkedlist(int* arr, NODE* node) {
+    NODE* temp;
+    int i;
+
+    for (i = 0, temp = node; i < SIZE; i++)
