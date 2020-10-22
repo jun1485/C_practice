@@ -36,4 +36,16 @@ void transLinkedlist(int* arr, NODE* node) {
     NODE* temp;
     int i;
 
-    for (i = 0, temp = node; i < SIZE; i++)
+    for (i = 0, temp = node; i < SIZE; i++) {
+        temp->next = addNode(arr[i]);
+        temp = temp->next;
+    }
+}
+
+void print(NODE* node) {
+    NODE* printNode = node;
+
+    while (printNode != NULL) {
+        printf("%d ", printNode->data);
+    }
+}
