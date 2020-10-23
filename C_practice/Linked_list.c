@@ -47,5 +47,17 @@ void print(NODE* node) {
 
     while (printNode != NULL) {
         printf("%d ", printNode->data);
+        printNode = printNode->next;
     }
+    printf("\n");
 }
+
+NODE* mergeSort(NODE* a, NODE* b) {
+    NODE* res = NULL;
+
+    if (a == NULL) {
+        return b;
+    }
+    else if (b == NULL) {
+        return a;
+    }
