@@ -61,3 +61,14 @@ NODE* mergeSort(NODE* a, NODE* b) {
     else if (b == NULL) {
         return a;
     }
+    if (a->data <= b->data) {
+        res = a;
+        res->next = mergeSort(a->next, b);
+    }
+    else {
+        res = b;
+        res->next = mergeSort(a, b->next);
+    }
+    return res;
+
+}
