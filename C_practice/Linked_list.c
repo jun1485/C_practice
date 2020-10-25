@@ -72,3 +72,11 @@ NODE* mergeSort(NODE* a, NODE* b) {
     return res;
 
 }
+
+int main() {
+    int arr[SIZE];
+    NODE* a, * b, * d;
+    srand(time(NULL));
+
+    randAlloc(arr);
+    selectionSort(arr)
