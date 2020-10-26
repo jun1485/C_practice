@@ -83,3 +83,5 @@ int main() {
     a = (NODE*)malloc(sizeof(NODE));
     a->next = NULL;
     transLinkedlist(arr, a);
+    printf("링크드리스트 a의 각 노드\n");
+    print(a->next);
