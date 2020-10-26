@@ -79,4 +79,7 @@ int main() {
     srand(time(NULL));
 
     randAlloc(arr);
-    selectionSort(arr)
+    selectionSort(arr);
+    a = (NODE*)malloc(sizeof(NODE));
+    a->next = NULL;
+    transLinkedlist(arr, a);
