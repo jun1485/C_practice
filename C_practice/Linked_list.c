@@ -85,3 +85,11 @@ int main() {
     transLinkedlist(arr, a);
     printf("링크드리스트 a의 각 노드\n");
     print(a->next);
+
+    randAlloc(arr);
+    selectionSort(arr);
+    b = (NODE*)malloc(sizeof(NODE));
+    b->next = NULL;
+    transLinkedlist(arr, b);
+    printf("링크드리스트 b의 각 노드\n");
+    print(b->next);
