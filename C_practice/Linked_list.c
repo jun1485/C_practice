@@ -93,3 +93,8 @@ int main() {
     transLinkedlist(arr, b);
     printf("링크드리스트 b의 각 노드\n");
     print(b->next);
+
+    d = (NODE*)malloc(sizeof(NODE));
+    d = mergeSort(a->next, b->next);
+    printf("병합 된 링크드리스트 d의 각 노드\n");
+    print(d);
