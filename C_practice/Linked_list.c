@@ -98,3 +98,8 @@ int main() {
     d = mergeSort(a->next, b->next);
     printf("병합 된 링크드리스트 d의 각 노드\n");
     print(d);
+
+    free(a);
+    free(b);
+    free(d);
+}
