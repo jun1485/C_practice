@@ -13,3 +13,13 @@ int isset(int arr[], int n)
         if (arr[i] == 1)
             return 1;
     }
+    return 0;
+}
+void powerset(int arr[], int i, int n)
+{
+    if (i == n)
+    {
+        if (isset(arr, n))
+            count++;
+    }
+}
