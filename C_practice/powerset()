@@ -21,5 +21,13 @@ void powerset(int arr[], int i, int n)
     {
         if (isset(arr, n))
             count++;
+        show1(value, arr, n);
+    }
+    else
+    {
+        arr[i] = 1;
+        powerset(arr, i + 1, n);
+        arr[i] = 0;
+        powerset(arr, i + 1, n);
     }
 }
