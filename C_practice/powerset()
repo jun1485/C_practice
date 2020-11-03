@@ -1,42 +1,53 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#define MAX 100
-char value[MAX];
-static int count = 0;
+#include <stdlib.h>
+#include <time.h>
+#define SWAP(a,b) {int t=a; a=b; b=t;}
+#define SIZE 20
 
-void show1(char arr[], int mask[], int n);
-int isset(int arr[], int n)
-{
-    int i;
-    for (i = 0; i < n; i++)
-    {
-        if (arr[i] == 1)
-            return 1;
-    }
-    return 0;
+typedef struct node {
+    int data;
+    struct node* next;
+}NODE;
+
+void randAlloc(int* arr) {
+    for (int i = 0; i < SIZE; i++)
+        arr[i] = rand() % 1000 + 1;
 }
-void powerset(int arr[], int i, int n)
-{
-    if (i == n)
-    {
-        if (isset(arr, n))
-            count++;
-        show1(value, arr, n);
-    }
-    else
-    {
-        arr[i] = 1;
-        powerset(arr, i + 1, n);
-        arr[i] = 0;
-        powerset(arr, i + 1, n);
+
+void selectionSort(int* arr) {
+    for (int i = 0; i < SIZE - 1; i++) {
+        for (int j = i + 1; j < SIZE; j++) {
+            if (arr[i] > arr[j]) {
+                SWAP(arr[i], arr[j]);
+            }
+        }
     }
 }
-void show1(char arr[], int mask[], int n)
-{
+
+NODE* addNode(int data) {
+    NODE* newNode = (NODE*)malloc(sizeof(NODE));
+    newNode->data = data;
+    newNode->next = NULL;
+
+    return newNode;
+}
+
+void transLinkedlist(int* arr, NODE* node) {
+    NODE* temp;
     int i;
-    for (i = 0; i < n; i++)
-    {
-        if (mask[i] == 1)
-            printf("%c", arr[i]);
+
+    for (i = 0, temp = node; i < SIZE; i++) {
+        temp->next = addNode(arr[i]);
+        temp = temp->next;
     }
+}
+
+void print(NODE* node) {
+    NODE* printNode = node;
+
+    while (printNode != NULL) {
+        printf("%d ", printNode->data);
+        printNode = printNode->next;
+    }
+    printf("\n");
 }
