@@ -51,3 +51,10 @@ void print(NODE* node) {
     }
     printf("\n");
 }
+
+NODE* mergeSort(NODE* a, NODE* b) {
+    NODE* res = NULL;
+
+    if (a == NULL) {
+        return b;
+    }
