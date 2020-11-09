@@ -14,3 +14,10 @@ void postorder(struct node*);
 struct node* copy(struct node*);
 struct node* swap(struct node*);
 int equal(struct node*, struct node*);
+
+struct node* make_tree_by_code() {
+
+	int n = 0;
+	int data;
+	struct node* make_tree;
+	node ptr;
