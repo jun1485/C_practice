@@ -21,3 +21,11 @@ struct node* make_tree_by_code() {
 	int data;
 	struct node* make_tree;
 	node ptr;
+	
+	make_tree = (struct node*)malloc(sizeof(struct node));
+	make_tree->rchild = make_tree->lchild = NULL;
+
+	printf("insert data >> ");
+	scanf_s("%d", &data);
+
+	int randData = rand() % 2;
