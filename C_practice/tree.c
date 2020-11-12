@@ -49,3 +49,17 @@ struct node* make_tree_by_code() {
 		return make_tree;
 	}
 	return NULL;
+
+	if (make_tree->rchild == NULL && make_tree->lchild == NULL) {
+		return NULL;
+	}
+}
+
+void inorder(struct node* tree) {
+
+	if (tree) {
+		inorder(tree->lchild);
+		printf("%d -> ", tree->data);
+		inorder(tree->rchild);
+	}
+}
