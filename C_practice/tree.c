@@ -63,3 +63,12 @@ void inorder(struct node* tree) {
 		inorder(tree->rchild);
 	}
 }
+
+void preorder(struct node* tree) {
+
+	if (tree) {
+		printf("%d -> ", tree->data);
+		preorder(tree->lchild);
+		preorder(tree->rchild);
+	}
+}
