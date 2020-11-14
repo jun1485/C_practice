@@ -72,3 +72,11 @@ void preorder(struct node* tree) {
 		preorder(tree->rchild);
 	}
 }
+void postorder(struct node* tree) {
+	if (tree) {
+		postorder(tree->lchild);
+		postorder(tree->rchild);
+		printf("%d -> ", tree->data);
+	}
+
+}
