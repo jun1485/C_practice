@@ -80,3 +80,11 @@ void postorder(struct node* tree) {
 	}
 
 }
+
+struct node* copy(struct node* original) {
+	struct node* copy_tree;
+	if (original) {
+		copy_tree = (struct node*)malloc(sizeof(struct node));
+		copy_tree->lchild = copy(original->lchild);
+		copy_tree->rchild = copy(original->rchild);
+		copy_tree->data = original->data;
