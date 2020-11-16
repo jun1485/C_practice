@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <time.h>
-#define MAX_SIZE 1000000
+#define MAX_SIZE 10000
 #define SWAP(x,y,t) ((t) = (x), (x) = (y), (y) = (t))
 
 void sort(int[], int);
@@ -84,7 +84,7 @@ int binsearch(int list[], int low, int high, int target)
 		else if (middle < target)
 		{
 			low = middle + 1;
-		} 
+		}
 		else if (middle > target)
 		{
 			high = middle - 1;
