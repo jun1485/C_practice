@@ -88,3 +88,12 @@ struct node* copy(struct node* original) {
 		copy_tree->lchild = copy(original->lchild);
 		copy_tree->rchild = copy(original->rchild);
 		copy_tree->data = original->data;
+
+		return copy_tree;
+	}
+	return NULL;
+
+}
+
+struct node* swap(struct node* original) {
+	struct node* swap_tree;
