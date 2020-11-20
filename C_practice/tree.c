@@ -97,3 +97,14 @@ struct node* copy(struct node* original) {
 
 struct node* swap(struct node* original) {
 	struct node* swap_tree;
+
+	if (original) {
+		swap_tree = (struct node*)malloc(sizeof(struct node));
+		swap_tree->lchild = swap(original->rchild);
+		swap_tree->rchild = swap(original->lchild);
+		swap_tree->data = original->data;
+
+		return swap_tree;
+	}
+	return NULL;
+}
