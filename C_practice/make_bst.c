@@ -13,5 +13,9 @@ typedef struct node {
 
 node* make_bst(int n)
 {
-
+	node* newNode = (node*)malloc(sizeof(node));
+	newNode->lchild = NULL;
+	newNode->rchild = NULL;
+	newNode->data = n;
+	return newNode;
 }
