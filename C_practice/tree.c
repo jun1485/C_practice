@@ -108,3 +108,9 @@ struct node* swap(struct node* original) {
 	}
 	return NULL;
 }
+
+int equal(struct node* tree_1, struct node* tree_2) {
+
+	return ((!tree_1 && !tree_2) || (tree_1 && tree_2 && (tree_1->data == tree_2->data)
+		&& equal(tree_1->rchild, tree_2->rchild) && equal(tree_1->lchild, tree_2->lchild)));
+}
