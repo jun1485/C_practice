@@ -19,3 +19,12 @@ node* make_bst(int n)
 	newNode->data = n;
 	return newNode;
 }
+
+void insertNode(node* tree, node* newNode)
+{
+	if (newNode->data > tree->data)
+	{
+		if (tree->rchild != NULL)
+			insertNode(tree->rchild, newNode);
+		else tree->rchild = newNode;
+	}
