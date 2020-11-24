@@ -28,3 +28,10 @@ void insertNode(node* tree, node* newNode)
 			insertNode(tree->rchild, newNode);
 		else tree->rchild = newNode;
 	}
+	else if (newNode->data < tree->data)
+	{
+		if (tree->lchild != NULL)
+			insertNode(tree->lchild, newNode);
+		else tree->lchild = newNode;
+	}
+}
