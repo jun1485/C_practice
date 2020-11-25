@@ -35,3 +35,13 @@ void insertNode(node* tree, node* newNode)
 		else tree->lchild = newNode;
 	}
 }
+
+treePointer searchNode(treePointer tree, int key)
+{
+	if (tree == NULL) return NULL;
+	if (tree->data == key) return tree;
+	else if (tree->data > key)
+		searchNode(tree->lchild, key);
+	else searchNode(tree->rchild, key);
+
+}
