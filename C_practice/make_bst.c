@@ -45,3 +45,11 @@ treePointer searchNode(treePointer tree, int key)
 	else searchNode(tree->rchild, key);
 
 }
+
+treePointer modified_search(treePointer tree, int key)
+{
+	treePointer ptr = NULL;
+	while (tree)
+	{
+		ptr = tree;
+		if (key == tree->key) return NULL;
