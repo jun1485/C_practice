@@ -53,3 +53,8 @@ treePointer modified_search(treePointer tree, int key)
 	{
 		ptr = tree;
 		if (key == tree->key) return NULL;
+		if (key < tree->key) tree = tree->lchild;
+		else tree = tree->rchild;
+	}
+	return ptr;
+}
