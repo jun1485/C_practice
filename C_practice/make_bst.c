@@ -58,3 +58,11 @@ treePointer modified_search(treePointer tree, int key)
 	}
 	return ptr;
 }
+
+void printTree(node* tree)
+{
+	if (tree == NULL) return;
+	printTree(tree->lchild);
+	printf("%d ", tree->data);
+	printTree(tree->rchild);
+}
