@@ -66,3 +66,8 @@ void printTree(node* tree)
 	printf("%d ", tree->data);
 	printTree(tree->rchild);
 }
+
+int get_height(node* root) { // 트리의 높이를 구한다.
+	if (!root)
+		return 0;
+	else {
