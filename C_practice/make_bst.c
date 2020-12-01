@@ -71,3 +71,8 @@ int get_height(node* root) { // 트리의 높이를 구한다.
 	if (!root)
 		return 0;
 	else {
+		int left_h = get_height(root->lchild); // 왼쪽 서브트리의 높이를 순환호출을 통해 얻는다.
+		int right_h = get_height(root->rchild); // 같은 방법으로 오른쪽 서브트리의 높이를 얻는다.
+		printf("%d", 1 + (left_h > right_h ? left_h : right_h)); // 둘 중 큰 값에 1을 더해 반환한다.
+	}
+}
