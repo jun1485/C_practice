@@ -76,3 +76,9 @@ int get_height(node* root) { // 트리의 높이를 구한다.
 		printf("%d", 1 + (left_h > right_h ? left_h : right_h)); // 둘 중 큰 값에 1을 더해 반환한다.
 	}
 }
+
+int main()
+{
+	node* tree = make_bst(10);
+	node* findNode;
+	int input;
