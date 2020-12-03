@@ -82,3 +82,14 @@ int main()
 	node* tree = make_bst(10);
 	node* findNode;
 	int input;
+
+	insertNode(tree, make_bst(1));
+	insertNode(tree, make_bst(3));
+	insertNode(tree, make_bst(5));
+	insertNode(tree, make_bst(7));
+	insertNode(tree, make_bst(9));
+	insertNode(tree, make_bst(11));
+	insertNode(tree, make_bst(13));
+	insertNode(tree, make_bst(15));
+	insertNode(tree, make_bst(17));
+	insertNode(tree, make_bst(19));
