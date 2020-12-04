@@ -93,3 +93,11 @@ int main()
 	insertNode(tree, make_bst(15));
 	insertNode(tree, make_bst(17));
 	insertNode(tree, make_bst(19));
+
+	while (1)
+	{
+		scanf("%d", &input);
+		findNode = searchNode(tree, input);
+		if (findNode != NULL)
+		{
+		}
