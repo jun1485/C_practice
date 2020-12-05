@@ -100,4 +100,13 @@ int main()
 		findNode = searchNode(tree, input);
 		if (findNode != NULL)
 		{
+			printf("해당 노드를 찾았습니다! 노드의 위치는 %#x 입니다.\n", findNode);
+			printf("현재 트리 출력: ");
+			printTree(tree);
+			printf("\n");
+			get_height(tree);
 		}
+		else printf("노드를 찾을 수 없었습니다.\n");
+	}
+	return 0;
+}
