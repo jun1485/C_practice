@@ -20,3 +20,10 @@ void DFS(int v, int N) {
 
     return;
 }
+
+void BFS(int v, int N) {
+    int front = 0, rear = 0, Pop, i;
+
+    printf("%d ", v);
+    queue[0] = v;
+    rear++;
