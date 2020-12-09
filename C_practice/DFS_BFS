@@ -27,3 +27,10 @@ void BFS(int v, int N) {
     printf("%d ", v);
     queue[0] = v;
     rear++;
+    BFSvisit[v] = 1;
+
+    while (front < rear) {
+        Pop = queue[front];
+        front++;
+        }
+}
