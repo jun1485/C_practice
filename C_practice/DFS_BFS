@@ -32,5 +32,16 @@ void BFS(int v, int N) {
     while (front < rear) {
         Pop = queue[front];
         front++;
+
+        for (i = 1; i <= N; i++) {
+            if (Graph[Pop][i] == 1 && BFSvisit[i] == 0) {
+                printf("%d ", i);
+                queue[rear] = i;
+                rear++;
+                BFSvisit[i] = 1;
+            }
         }
+    }
+
+    return;
 }
