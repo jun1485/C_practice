@@ -45,3 +45,24 @@ void BFS(int v, int N) {
 
     return;
 }
+
+
+
+int main() {
+    int N, M, Start;
+    int i, x, y;
+
+    scanf("%d%d%d", &N, &M, &Start);
+
+    for (i = 0; i < M; i++) {
+        scanf("%d%d", &x, &y);
+        Graph[x][y] = 1;
+        Graph[y][x] = 1;
+    }
+
+    DFS(Start, N);
+    printf("\n");
+    BFS(Start, N);
+
+    return 0;
+}
