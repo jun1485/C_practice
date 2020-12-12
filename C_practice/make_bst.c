@@ -92,7 +92,6 @@ int main()
 	insertNode(tree, make_bst(13));
 	insertNode(tree, make_bst(15));
 	insertNode(tree, make_bst(17));
-	insertNode(tree, make_bst(19));
 
 	while (1)
 	{
@@ -108,5 +107,4 @@ int main()
 		}
 		else printf("노드를 찾을 수 없었습니다.\n");
 	}
-	return 0;
 }
