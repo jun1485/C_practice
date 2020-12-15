@@ -24,3 +24,9 @@ int merge_Sort[MAX_SIZE]; //합병
 int heap_Sort[MAX_SIZE]; //히프 
 int n;
 
+
+void selection_sort(int list[], int n);                        //선택 정렬
+void insertion_sort(int list[], int n);                       //삽입 정렬 
+void merge(int list[], int left, int mid, int right);          //합병 정렬 
+void merge_sort(int list[], int left, int right);          
+void heap_sort(element a[], int n);                            //히프 정렬 
