@@ -34,3 +34,17 @@ void insert_max_heap(HeapType* h, element item);
 element delete_max_heap(HeapType* h);                      
 init(HeapType* h);                                            
 void sort_clock();                           
+
+		//선택 정렬
+void selection_sort(int list[], int n)
+{
+
+	int i, j, least, temp;
+	for (i = 0; i < n - 1; i++) {
+		least = i;
+		for (j = i + 1; j < n; j++) 	// 최소값 탐색
+			if (list[j] < list[least]) least = j;
+		SWAP(list[i], list[least], temp);
+	}
+	finish = clock();  // 시간 끝             
+}
