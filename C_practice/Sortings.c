@@ -1,43 +1,36 @@
- 
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define MAX_SIZE 60000
+#define MAX_ELEMENT 60000
+#define SWAP(x, y, t) ( (t)=(x), (x)=(y), (y)=(t) )
+
+typedef struct {
+	int key;
+} element;
+typedef struct {
+	element heap[MAX_ELEMENT];
+	int heap_size;
+} HeapType;
+
+element a[MAX_SIZE];
+int sorted[MAX_SIZE];  
+double start, finish; 
+int selection_Sort[MAX_SIZE]; //선택 
+int insertion_Sort[MAX_SIZE]; //삽입 
+int merge_Sort[MAX_SIZE]; //합병 
+int heap_Sort[MAX_SIZE]; //히프 
+int n;
+
+
+void selection_sort(int list[], int n);                        //선택 정렬
+void insertion_sort(int list[], int n);                       //삽입 정렬 
+void merge(int list[], int left, int mid, int right);          //합병 정렬 
+void merge_sort(int list[], int left, int right);          
+void heap_sort(element a[], int n);                            //히프 정렬 
 void insert_max_heap(HeapType* h, element item);              
 element delete_max_heap(HeapType* h);                      
 init(HeapType* h);                                            
-void sort_clock();                                           
-
-	int main()
-	{
-
-		int i; //반복을 돌리기위해 선언
-		int a = 1;
-
-		printf("데이터의 개수를 입력 하시오 : ");
-		scanf("%d", &n);
-
-		printf("-----------최선------------\n");
-	for (i = 0; i < n; i++) { //최선 
-		selection_Sort[i] = a; //선택
-		insertion_Sort[i] = a; //삽입
-		merge_Sort[i] = a; //합병
-		heap_Sort[i] = a++; //히프
-	}
-	sort_clock();
-
-	printf("-----------최악------------\n");
-	for (i = 0; i < n; i++) { //최악 
-		selection_Sort[i] = --a;
-		insertion_Sort[i] = a;
-		merge_Sort[i] = a;
-		heap_Sort[i] = a;
-	}
-	sort_clock();
-
-	system("PAUSE");
-}
-
-
-
-		//선택 정렬
-void selection_sort(int list[], int n)
-{
-	
-}
+void sort_clock();                           
