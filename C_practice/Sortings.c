@@ -61,3 +61,12 @@ void insertion_sort(int list[], int n)
 		list[j + 1] = key;
 	}
 }
+
+		//합병 정렬
+/* i는 정렬된 왼쪽리스트에 대한 인덱스
+   j는 정렬된 오른쪽리스트에 대한 인덱스
+   k는 정렬될 리스트에 대한 인덱스 */
+void merge(int list[], int left, int mid, int right)
+{
+	int i, j, k, l;
+	i = left;  j = mid + 1;  k = left;
