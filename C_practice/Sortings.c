@@ -78,3 +78,8 @@ void merge(int list[], int left, int mid, int right)
 		else
 			sorted[k++] = list[j++];
 	}
+
+	if (i > mid)	/* 남아 있는 레코드의 일괄 복사 */
+		for (l = j; l <= right; l++)
+			sorted[k++] = list[l];
+	else
