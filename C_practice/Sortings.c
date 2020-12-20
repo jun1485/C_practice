@@ -82,4 +82,10 @@ void merge(int list[], int left, int mid, int right)
 	if (i > mid)	/* 남아 있는 레코드의 일괄 복사 */
 		for (l = j; l <= right; l++)
 			sorted[k++] = list[l];
-	else
+	else  /* 남아 있는 레코드의 일괄 복사 */
+		for (l = i; l <= mid; l++)
+			sorted[k++] = list[l];
+	/* 배열 sorted[]의 리스트를 배열 list[]로 재복사 */
+	for (l = left; l <= right; l++)
+		list[l] = sorted[l];
+}
