@@ -89,3 +89,8 @@ void merge(int list[], int left, int mid, int right)
 	for (l = left; l <= right; l++)
 		list[l] = sorted[l];
 }
+
+void merge_sort(int list[], int left, int right)
+{
+	
+}
