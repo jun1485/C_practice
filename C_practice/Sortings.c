@@ -92,5 +92,7 @@ void merge(int list[], int left, int mid, int right)
 
 void merge_sort(int list[], int left, int right)
 {
-	
+	int mid;
+	if (left < right) {
+		mid = (left + right) / 2;     /* 리스트의 균등 분할 */
 }
