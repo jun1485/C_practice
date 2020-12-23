@@ -95,4 +95,8 @@ void merge_sort(int list[], int left, int right)
 	int mid;
 	if (left < right) {
 		mid = (left + right) / 2;     /* 리스트의 균등 분할 */
+		merge_sort(list, left, mid);    /* 부분 리스트 정렬 */
+		merge_sort(list, mid + 1, right); /* 부분 리스트 정렬 */
+		merge(list, left, mid, right);    /* 합병 */
+	}
 }
