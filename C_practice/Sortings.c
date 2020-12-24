@@ -33,7 +33,39 @@ void heap_sort(element a[], int n);                            //히프 정렬
 void insert_max_heap(HeapType* h, element item);              
 element delete_max_heap(HeapType* h);                      
 init(HeapType* h);                                            
-void sort_clock();                           
+void sort_clock();                                           
+
+	int main()
+	{
+
+		int i; //반복을 돌리기위해 선언
+		int a = 1;
+
+		printf("데이터의 개수를 입력 하시오 : ");
+		scanf("%d", &n);
+
+		printf("-----------최선------------\n");
+	for (i = 0; i < n; i++) { //최선 
+		selection_Sort[i] = a; //선택
+		insertion_Sort[i] = a; //삽입
+		merge_Sort[i] = a; //합병
+		heap_Sort[i] = a++; //히프
+	}
+	sort_clock();
+
+	printf("-----------최악------------\n");
+	for (i = 0; i < n; i++) { //최악 
+		selection_Sort[i] = --a;
+		insertion_Sort[i] = a;
+		merge_Sort[i] = a;
+		heap_Sort[i] = a;
+	}
+	sort_clock();
+
+	system("PAUSE");
+}
+
+
 
 		//선택 정렬
 void selection_sort(int list[], int n)
@@ -48,7 +80,6 @@ void selection_sort(int list[], int n)
 	}
 	finish = clock();  // 시간 끝             
 }
-
 		//삽입 정렬
 void insertion_sort(int list[], int n)
 {
@@ -61,7 +92,6 @@ void insertion_sort(int list[], int n)
 		list[j + 1] = key;
 	}
 }
-
 		//합병 정렬
 /* i는 정렬된 왼쪽리스트에 대한 인덱스
    j는 정렬된 오른쪽리스트에 대한 인덱스
@@ -78,18 +108,17 @@ void merge(int list[], int left, int mid, int right)
 		else
 			sorted[k++] = list[j++];
 	}
-
 	if (i > mid)	/* 남아 있는 레코드의 일괄 복사 */
 		for (l = j; l <= right; l++)
 			sorted[k++] = list[l];
-	else  /* 남아 있는 레코드의 일괄 복사 */
+	else	/* 남아 있는 레코드의 일괄 복사 */
 		for (l = i; l <= mid; l++)
 			sorted[k++] = list[l];
 	/* 배열 sorted[]의 리스트를 배열 list[]로 재복사 */
 	for (l = left; l <= right; l++)
 		list[l] = sorted[l];
 }
-
+//
 void merge_sort(int list[], int left, int right)
 {
 	int mid;
