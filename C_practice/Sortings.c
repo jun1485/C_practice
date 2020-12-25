@@ -129,3 +129,8 @@ void merge_sort(int list[], int left, int right)
 		merge(list, left, mid, right);    /* 합병 */
 	}
 }
+		//히프 정렬
+void insert_max_heap(HeapType* h, element item) //히프 삽입 함수 
+{
+	int i;
+	i = ++(h->heap_size);
