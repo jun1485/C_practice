@@ -136,5 +136,9 @@ void insert_max_heap(HeapType* h, element item) //히프 삽입 함수
 	i = ++(h->heap_size);
 
 	//  트리를 거슬러 올라가면서 부모 노드와 비교하는 과정
-	while ((i != 1) && (item.key > h->heap[i / 2].key)) 
+	while ((i != 1) && (item.key > h->heap[i / 2].key)) {
+		h->heap[i] = h->heap[i / 2];
+		i /= 2;
+	}
+	h->heap[i] = item;     // 새로운 노드를 삽입
 }
