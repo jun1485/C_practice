@@ -142,3 +142,8 @@ void insert_max_heap(HeapType* h, element item) //히프 삽입 함수
 	}
 	h->heap[i] = item;     // 새로운 노드를 삽입
 }
+
+element delete_max_heap(HeapType* h)  //히프 삭제 함수 
+{
+	int parent, child;
+	element item, temp;
