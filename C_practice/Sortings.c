@@ -147,3 +147,6 @@ element delete_max_heap(HeapType* h)  //히프 삭제 함수
 {
 	int parent, child;
 	element item, temp;
+
+	item = h->heap[1];
+	temp = h->heap[(h->heap_size)--];
