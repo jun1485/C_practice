@@ -150,3 +150,7 @@ element delete_max_heap(HeapType* h)  //히프 삭제 함수
 
 	item = h->heap[1];
 	temp = h->heap[(h->heap_size)--];
+	parent = 1;
+	child = 2;
+	while (child <= h->heap_size) {
+		// 현재 노드의 자식노드중 더 작은 자식노드를 찾는다.
