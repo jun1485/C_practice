@@ -157,3 +157,6 @@ element delete_max_heap(HeapType* h)  //히프 삭제 함수
 		if ((child < h->heap_size) &&
 			(h->heap[child].key) < h->heap[child + 1].key)
 			child++;
+		if (temp.key >= h->heap[child].key) break;
+		// 한단계 아래로 이동
+		h->heap[parent] = h->heap[child];
