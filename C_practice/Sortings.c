@@ -166,3 +166,8 @@ element delete_max_heap(HeapType* h)  //히프 삭제 함수
 	h->heap[parent] = temp;
 	return item;
 }
+
+init(HeapType* h) //초기화 함수 
+{
+	h->heap_size = 0;
+}
