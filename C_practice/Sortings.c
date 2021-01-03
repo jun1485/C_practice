@@ -171,3 +171,9 @@ init(HeapType* h) //초기화 함수
 {
 	h->heap_size = 0;
 }
+void heap_sort(element a[], int n)
+{
+	int i;
+	HeapType h;
+
+	init(&h);
