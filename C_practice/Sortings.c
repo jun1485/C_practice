@@ -177,3 +177,6 @@ void heap_sort(element a[], int n)
 	HeapType h;
 
 	init(&h);
+	for (i = 0; i < n; i++) {
+		insert_max_heap(&h, a[i]);
+	}
