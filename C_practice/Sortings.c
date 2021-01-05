@@ -184,3 +184,7 @@ void heap_sort(element a[], int n)
 		a[i] = delete_max_heap(&h);
 	}
 }
+		//정렬들의 실행 시간
+void sort_clock()
+{
+	start = clock();
