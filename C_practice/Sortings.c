@@ -188,3 +188,7 @@ void heap_sort(element a[], int n)
 void sort_clock()
 {
 	start = clock();
+
+	selection_sort(selection_Sort, n);	//선택정렬 호출
+	finish = clock();
+	printf("선택 정렬 : %.3f초입니다.\n", (finish - start) / 1000);
