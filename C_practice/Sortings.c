@@ -192,3 +192,19 @@ void sort_clock()
 	selection_sort(selection_Sort, n);	//선택정렬 호출
 	finish = clock();
 	printf("선택 정렬 : %.3f초입니다.\n", (finish - start) / 1000);
+
+	start = clock();
+	insertion_sort(insertion_Sort, n);//삽입 정렬 호출
+	finish = clock();
+	printf("삽입 정렬 : %.3f초입니다.\n", (finish - start) / 1000);
+
+	start = clock();
+	merge_sort(merge_Sort, 0, n - 1); //합병 정렬 호출
+	finish = clock();
+	printf("합병 정렬 : %.3f초입니다.\n", (finish - start) / 1000);
+
+	start = clock();
+	heap_sort(heap_Sort, n); //히프 정렬 호출
+	finish = clock();
+	printf("히프 정렬 : %.3f초입니다.\n", (finish - start) / 1000);
+}
