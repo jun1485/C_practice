@@ -14,3 +14,8 @@ typedef struct {
 	element heap[MAX_ELEMENT];
 	int heap_size;
 } HeapType; 
+
+element a[MAX_SIZE];
+int sorted[MAX_SIZE];   // 합병 정렬에서 추가 공간이 필요
+double start, finish; //시간을 재기위한 변수
+int quick_Sort[MAX_SIZE];
