@@ -36,3 +36,8 @@ int main()
 	scanf("%d", &n);
 
 		
+
+	printf("-----------최선------------\n");
+	for (i = 0; i < n; i++) { 
+		quick_Sort[i] = a; 
+	}
