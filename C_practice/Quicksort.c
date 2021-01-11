@@ -26,3 +26,13 @@ int n;
 
 void sort_clock();                                          
  
+int main()
+{
+
+	int i;
+	int a = 1;
+
+	printf("데이터의 개수를 입력 하시오 : ");
+	scanf("%d", &n);
+
+		
