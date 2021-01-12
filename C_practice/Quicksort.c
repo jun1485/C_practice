@@ -41,3 +41,15 @@ int main()
 	for (i = 0; i < n; i++) { 
 		quick_Sort[i] = a; 
 	}
+
+	sort_clock();
+
+	printf("-----------최악------------\n");
+	for (i = 0; i < n; i++) { 
+		quick_Sort[i] = a;
+	}
+
+	sort_clock();
+
+	system("PAUSE");
+}
