@@ -53,3 +53,12 @@ int main()
 
 	system("PAUSE");
 }
+
+		//퀵 정렬
+int partition(int list[], int left, int right)
+{
+	int pivot, temp;
+	int low, high;
+
+	low = left;
+	high = right + 1;
