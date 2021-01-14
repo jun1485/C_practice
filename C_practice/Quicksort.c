@@ -62,3 +62,8 @@ int partition(int list[], int left, int right)
 
 	low = left;
 	high = right + 1;
+	pivot = list[left];
+	do {
+		do
+			low++;
+		while (list[low] < pivot);
