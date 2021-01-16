@@ -72,3 +72,7 @@ int partition(int list[], int left, int right)
 		while (list[high] > pivot);
 		if (low < high) SWAP(list[low], list[high], temp);
 	} while (low < high);
+
+	SWAP(list[left], list[high], temp);
+	return high;
+}
