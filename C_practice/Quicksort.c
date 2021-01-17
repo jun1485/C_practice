@@ -76,3 +76,8 @@ int partition(int list[], int left, int right)
 	SWAP(list[left], list[high], temp);
 	return high;
 }
+
+void quick_sort(int list[], int left, int right)
+{
+	if (left < right) {
+		int q = partition(list,
