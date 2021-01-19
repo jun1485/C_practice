@@ -85,3 +85,8 @@ void quick_sort(int list[], int left, int right)
 		quick_sort(list, q + 1, right);
 	}
 }
+
+		//정렬들의 실행 시간
+void sort_clock()
+{
+	start = clock();
