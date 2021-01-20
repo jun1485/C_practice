@@ -90,3 +90,7 @@ void quick_sort(int list[], int left, int right)
 void sort_clock()
 {
 	start = clock();
+	quick_sort(quick_Sort, 0, n - 1); //퀵 정렬 호출
+	finish = clock();
+	printf(" 퀵  정렬 : %.3f초입니다.\n", (finish - start) / 1000);
+}
