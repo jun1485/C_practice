@@ -1,0 +1,16 @@
+#define _CRT_SUCURE_NO_WARNINGS
+#include <stdio.h>
+
+int factorial(int n)
+{
+	int res;
+	if(n == 1) return 1;
+	return res = n * factorial(n - 1);
+}
+
+int main()
+{
+	int n;
+	scanf("%d", &n);
+	printf("%d", factorial(n));
+}

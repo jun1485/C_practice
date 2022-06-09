@@ -1,0 +1,129 @@
+#include <iostream>
+#include <algorithm> 
+#include <iomanip>
+#include <string.h> 
+using namespace std;
+
+struct process {
+    int process_id;
+    int AT;
+    int BT;
+    int priority;
+    int ST;
+    int CT;
+    int TAT;
+    int WT;
+    int RT;
+};
+//AT = Arrival time BT = Burst time ST = Start time
+//TAT = Turnaround time  CT = Complete time
+//WT = Waiting time RT = Response time
+//Turnaround time = Complete time - Arrival time
+// Waiting time = Turnaround time - Burst time
+// Response time = Start time - Arrival time
+
+int main() {
+
+    int n;
+    struct process p[100];
+    float cpu_utilisation;
+    float avg_turnaround_time;
+    float avg_waiting_time;
+    float avg_response_time;
+    int total_response_time = 0;
+    int total_turnaround_time = 0;
+    int total_waiting_time = 0;
+    int total_idle_time = 0;
+    float throughput;
+    int Completed[100];
+    memset(Completed, 0, sizeof(Completed));
+
+    cout << setprecision(2) << fixed;
+
+    cout << "Nonpreemptive Priority Scheduler\n\n" << "프로세스의 개수를 입력해주세요 => ";
+    cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        cout << "프로세스의 도착시간(Arrival time)을 입력해주세요 => " << i + 1 << ": ";
+        cin >> p[i].AT;
+        cout << "프로세스의 실행시간(Berst time)을 입력해주세요 => " << i + 1 << ": ";
+        cin >> p[i].BT;
+        cout << "프로세스의 우선순위(Priority)를 입력해주세요 => " << i + 1 << ": ";
+        cin >> p[i].priority;
+        p[i].process_id = i + 1;
+        cout << endl;
+    }
+
+    system("CLS");
+    int current_time = 0;
+    int completed = 0;
+    int prev = 0;
+
+    while (completed != n) {
+        int index = -1;
+        int mx = -1;
+        for (int i = 0; i < n; i++) {
+            if (p[i].AT <= current_time && Completed[i] == 0) {
+                if (p[i].priority > mx) {
+                    mx = p[i].priority;
+                    index = i;
+                }
+                if (p[i].priority == mx) {
+                    if (p[i].AT < p[index].AT) {
+                        mx = p[i].priority;
+                        index = i;
+                    }
+                }
+            }
+        }
+        if (index != -1) {
+            p[index].ST = current_time;
+            p[index].CT = p[index].ST + p[index].BT;
+            p[index].TAT = p[index].CT - p[index].AT;
+            p[index].WT = p[index].TAT - p[index].BT;
+            p[index].RT = p[index].ST - p[index].AT;
+
+            total_turnaround_time += p[index].TAT;
+            total_waiting_time += p[index].WT;
+            total_response_time += p[index].RT;
+            total_idle_time += p[index].ST - prev;
+
+            Completed[index] = 1;
+            completed++;
+            current_time = p[index].CT;
+            prev = current_time;
+        }
+        else {
+            current_time++;
+        }
+
+    }
+
+    int min_arrival_time = 10000000;
+    int max_complete_time = -1;
+    for (int i = 0; i < n; i++) {
+        min_arrival_time = min(min_arrival_time, p[i].AT);
+        max_complete_time = max(max_complete_time, p[i].CT);
+    }
+
+    avg_response_time = (float)total_response_time / n;
+    avg_turnaround_time = (float)total_turnaround_time / n;
+    avg_waiting_time = (float)total_waiting_time / n;
+    cpu_utilisation = ((max_complete_time - total_idle_time) / (float)max_complete_time) * 100;
+    throughput = float(n) / (max_complete_time - min_arrival_time);
+
+    cout << endl << endl;
+
+    cout << "P(i)\t" << "AT\t" << "BT\t" << "PRI\t" << "ST\t" << "CT\t" << "TAT\t" << "WT\t" << "RT\t" << "\n" << endl;
+
+    for (int i = 0; i < n; i++) {
+        cout << p[i].process_id << "\t" << p[i].AT << "\t" << p[i].BT << "\t" << p[i].priority << "\t" << p[i].ST << "\t" << p[i].CT << "\t" << p[i].TAT << "\t" << p[i].WT << "\t" << p[i].RT << "\t" << "\n" << endl;
+    }
+    cout << "CPU Utilization = " << cpu_utilisation << "%" << endl;
+    cout << "Throughput = " << throughput << " process/unit time" << endl;
+    cout << "평균 반환 시간 = " << avg_turnaround_time << endl;
+    cout << "평균 대기 시간 = " << avg_waiting_time << endl;
+    cout << "평균 반응 시간 = " << avg_response_time << endl;
+
+
+}

@@ -1,0 +1,85 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_STACK_SIZE 10
+#define STACK_ERROR_KEY -999
+
+typedef struct {
+	int key;
+	/* 다른 필드 */
+} element;
+
+static element stack[MAX_STACK_SIZE];
+static int top = -1;
+
+void printStack();
+bool isEmpty();
+bool isFull();
+void stackFull();
+element stackEmpty();
+void push(element item);
+element pop();
+
+void printStack() {
+	printf(" index : element\n");
+	for (int i = 0; i <= top; i++)
+		printf("%4d : %8d\n", i, stack[i].key);
+}
+bool isEmpty() {
+	if (top < 0)
+		return true;
+	else
+		return false;
+}
+bool isFull() {
+	if (top == MAX_STACK_SIZE - 1)
+		return true;
+	else
+		return false;
+}
+void stackFull() {
+	fprintf(stderr, "Stack is full, cannot add element\n");
+}
+element stackEmpty() {
+	fprintf(stderr, "Stack is empty, cannot remove element\n");
+	element temp;
+	temp.key = STACK_ERROR_KEY;
+	return temp;
+}
+void push(element item) {
+	/* 전역 stack에 item을 삽입 */
+	if (top == MAX_STACK_SIZE - 1)
+		stackFull();
+	else
+		stack[++top] = item;
+}
+element pop() {
+	/* stack의 최상위 원소를 삭제하고 반환 */
+	if (top == -1)
+		return stackEmpty(); /* returns an error key */
+	return stack[top--];
+}
+
+int main() {
+	int n;
+	element temp;
+
+	printf("STACK PUSH&POP\n");
+	n = 20;
+	while (n--) {
+		if (rand() % 2 == 0) {
+			temp.key = rand() % MAX_STACK_SIZE;
+			printf("push 연산 수행 (key:%d)\n", temp.key);
+			push(temp);
+			printStack();
+		}
+		else {
+			temp = pop();
+			printf("pop 연산 수행 (key:%d)\n", temp.key);
+			printStack();
+		}
+	}
+
+
+	return 0;
+}
